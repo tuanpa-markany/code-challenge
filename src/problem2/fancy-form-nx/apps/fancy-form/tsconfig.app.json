@@ -58,6 +58,9 @@
     },
     {
       "path": "../../libs/shared/store/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/containers/swap-form/tsconfig.lib.json"
     }
   ]
 }

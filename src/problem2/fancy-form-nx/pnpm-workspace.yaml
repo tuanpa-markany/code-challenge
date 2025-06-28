@@ -3,3 +3,6 @@ packages:
   - 'apps/fancy-form-nx/libs/*'
   - 'libs/*'
   - 'libs/shared/*'
+  - 'libs/containers/*'
+  - 'test'
+  - 'my-lib'

@@ -31,7 +31,8 @@
         "apps/fancy-form/libs/shared/*",
         "libs/shared/*",
         "libs/shared/store/*",
-        "libs/shared/utils/*"
+        "libs/shared/utils/*",
+        "libs/shared/types/*"
       ]
     },
     {
@@ -72,7 +73,8 @@
         "libs/shared/*",
         "libs/shared/store/*",
         "libs/shared/utils/*",
-        "libs/shared/ui/*"
+        "libs/shared/ui/*",
+        "libs/shared/types/*"
       ],
       "options": {
         "typecheck": {

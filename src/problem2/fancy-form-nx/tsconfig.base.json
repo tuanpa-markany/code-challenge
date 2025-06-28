@@ -19,6 +19,9 @@
     "customConditions": ["development"],
     "baseUrl": ".",
     "paths": {
+      "@fancy-form-nx/containers/swap-form": [
+        "libs/containers/swap-form/src/index.ts"
+      ],
       "@fancy-form-nx/store": ["libs/shared/store/src/index.ts"],
       "@fancy-form-nx/ui": ["libs/shared/ui/src/index.ts"],
       "@fancy-form-nx/utils": ["libs/shared/utils/src/index.ts"]

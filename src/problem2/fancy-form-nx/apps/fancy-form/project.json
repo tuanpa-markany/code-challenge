@@ -1,0 +1,19 @@
+{
+  "name": "fancy-form",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "options": {
+        "outputPath": "dist/apps/fancy-form",
+        "configFile": "apps/fancy-form/vite.config.ts"
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "buildTarget": "fancy-form:build",
+        "configFile": "apps/fancy-form/vite.config.ts"
+      }
+    }
+  }
+}

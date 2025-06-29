@@ -1,20 +1,21 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
 type Token = {
-  symbol: string
-  price: number
-}
+  symbol: string;
+  price: number;
+  logoUrl: string;
+};
 
 type SwapState = {
-  fromToken: Token | null
-  toToken: Token | null
-  amount: string
-  tokenList: Token[]
-  setFromToken: (token: Token) => void
-  setToToken: (token: Token) => void
-  setAmount: (amount: string) => void
-  setTokenList: (tokens: Token[]) => void
-}
+  fromToken: Token | null;
+  toToken: Token | null;
+  amount: string;
+  tokenList: Token[];
+  setFromToken: (token: Token) => void;
+  setToToken: (token: Token) => void;
+  setAmount: (amount: string) => void;
+  setTokenList: (tokens: Token[]) => void;
+};
 
 export const useSwapStore = create<SwapState>((set) => ({
   fromToken: null,
@@ -25,4 +26,4 @@ export const useSwapStore = create<SwapState>((set) => ({
   setToToken: (token) => set({ toToken: token }),
   setAmount: (amount) => set({ amount }),
   setTokenList: (tokens) => set({ tokenList: tokens }),
-}))
+}));

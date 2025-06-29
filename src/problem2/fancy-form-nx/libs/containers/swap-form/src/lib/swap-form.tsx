@@ -29,10 +29,13 @@ export function SwapForm() {
   const isFormValid =
     fromToken && toToken && amount && fromToken.symbol !== toToken.symbol;
 
-  const handleSubmit = () => {
-    if (isFormValid) {
-      alert(`Swapping ${amount} ${fromToken?.symbol} to ${toToken?.symbol}`);
-    }
+  const handleSubmit = async () => {
+    if (!isFormValid) return;
+
+    // simulate async behavior
+    await new Promise((resolve) => setTimeout(resolve, 800));
+
+    alert(`Swapping ${amount} ${fromToken?.symbol} to ${toToken?.symbol}`);
   };
 
   return (

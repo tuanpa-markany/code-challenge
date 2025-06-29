@@ -29,11 +29,12 @@ export function TokenSelect({
           <Listbox.Button className="w-full rounded-md border px-3 py-2 text-sm flex justify-between items-center bg-white shadow-sm">
             <span className="flex items-center gap-2">
               {selected?.logoUrl && (
-                <img
-                  src={selected.logoUrl}
-                  alt={selected.symbol}
-                  className="w-5 h-5"
-                />
+                // <img
+                //   src={selected.logoUrl}
+                //   alt={selected.symbol}
+                //   className="w-5 h-5"
+                // />
+                <TokenLogo logoUrl={selected.logoUrl} alt={selected.symbol} />
               )}
               {selected?.symbol || 'Select a token'}
             </span>

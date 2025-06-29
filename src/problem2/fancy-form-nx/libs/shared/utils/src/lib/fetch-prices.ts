@@ -1,4 +1,4 @@
-type TokenPrice = {
+export type TokenPrice = {
   symbol: string;
   price: number;
   logoUrl: string;

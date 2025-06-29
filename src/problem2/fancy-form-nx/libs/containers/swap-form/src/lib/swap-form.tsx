@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSwapStore } from '@fancy-form-nx/store';
 import { fetchTokenPrices } from '@fancy-form-nx/utils';
 import {
@@ -20,10 +20,16 @@ export function SwapForm() {
     setAmount,
   } = useSwapStore();
 
+  const [status, setStatus] = useState<
+    'idle' | 'loading' | 'success' | 'error'
+  >('idle');
+
   useEffect(() => {
-    fetchTokenPrices().then((data) => {
-      setTokenList(data);
-    });
+    fetchTokenPrices()
+      .then((data) => {
+        setTokenList(data);
+      })
+      .catch(() => setStatus('error'));
   }, [setTokenList]);
 
   const isFormValid =
@@ -34,7 +40,7 @@ export function SwapForm() {
 
     // simulate async behavior
     await new Promise((resolve) => setTimeout(resolve, 800));
-
+    setStatus('success');
     alert(`Swapping ${amount} ${fromToken?.symbol} to ${toToken?.symbol}`);
   };
 
@@ -43,24 +49,41 @@ export function SwapForm() {
       <h1 className="text-3xl font-bold text-center">Currency Swap</h1>
 
       <div className="space-y-4">
-        <TokenSelect
-          label="From"
-          tokens={tokenList}
-          selected={fromToken}
-          onChange={setFromToken}
-        />
+        {tokenList.length === 0 ? (
+          <div className="text-center text-gray-400">Loading tokens...</div>
+        ) : (
+          <>
+            <TokenSelect
+              label="From"
+              tokens={tokenList}
+              selected={fromToken}
+              onChange={setFromToken}
+            />
 
-        <TokenSelect
-          label="To"
-          tokens={tokenList}
-          selected={toToken}
-          onChange={setToToken}
-        />
+            <TokenSelect
+              label="To"
+              tokens={tokenList}
+              selected={toToken}
+              onChange={setToToken}
+            />
+          </>
+        )}
 
         <AmountInput label="Amount" value={amount} onChange={setAmount} />
       </div>
 
       <SwapPreview amount={amount} fromToken={fromToken} toToken={toToken} />
+
+      {status === 'success' && (
+        <p className="text-green-600 text-sm text-center font-medium">
+          ✅ Swap successful!
+        </p>
+      )}
+      {status === 'error' && (
+        <p className="text-red-500 text-sm text-center font-medium">
+          ⚠️ Something went wrong.
+        </p>
+      )}
 
       <SwapButton onClick={handleSubmit} disabled={!isFormValid} />
     </div>

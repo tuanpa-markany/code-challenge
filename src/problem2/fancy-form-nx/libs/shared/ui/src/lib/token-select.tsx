@@ -2,6 +2,7 @@ import { Listbox } from '@headlessui/react';
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import classNames from 'classnames';
 import { TokenOption } from '@fancy-form-nx/types';
+import { TokenLogo } from './assets/token-logo';
 
 type TokenSelectProps = {
   label?: string;
@@ -50,11 +51,7 @@ export function TokenSelect({
                   )
                 }
               >
-                <img
-                  src={token.logoUrl}
-                  alt={token.symbol}
-                  className="w-5 h-5"
-                />
+                <TokenLogo logoUrl={token.logoUrl} alt={token.symbol} />
                 {token.symbol}
               </Listbox.Option>
             ))}

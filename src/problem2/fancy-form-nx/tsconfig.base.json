@@ -25,7 +25,7 @@
       "@fancy-form-nx/store": ["libs/shared/store/src/index.ts"],
       "@fancy-form-nx/ui": ["libs/shared/ui/src/index.ts"],
       "@fancy-form-nx/utils": ["libs/shared/utils/src/index.ts"],
-      "@fancy-form-nx/types/*": ["libs/shared/types/src/*"],
+      "@fancy-form-nx/types": ["libs/shared/types/src/index.ts"],
     }
   }
 }

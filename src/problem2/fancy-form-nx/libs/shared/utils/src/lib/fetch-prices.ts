@@ -13,5 +13,6 @@ export async function fetchTokenPrices(): Promise<TokenPrice[]> {
     .map((entry) => ({
       symbol: entry.currency.toUpperCase(),
       price: entry.price,
+      logoUrl: `https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/${entry.currency}.svg`,
     }));
 }

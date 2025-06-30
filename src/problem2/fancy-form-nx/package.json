@@ -2,7 +2,9 @@
   "name": "@fancy-form-nx/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "nx run fancy-form:serve"
+  },
   "private": true,
   "dependencies": {
     "@headlessui/react": "^2.2.4",

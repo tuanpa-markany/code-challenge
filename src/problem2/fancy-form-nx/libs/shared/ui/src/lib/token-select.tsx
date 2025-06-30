@@ -40,7 +40,7 @@ export function TokenSelect({
             </span>
             <ChevronUpDownIcon className="w-4 h-4 text-gray-400" />
           </Listbox.Button>
-          <Listbox.Options className="absolute mt-1 w-full bg-white rounded-md shadow-lg z-10 text-sm">
+          <Listbox.Options className="absolute mt-1 w-full bg-white rounded-md shadow-lg z-10 text-sm max-h-60 overflow-auto">
             {tokens.map((token) => (
               <Listbox.Option
                 key={token.symbol}

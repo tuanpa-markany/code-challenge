@@ -42,10 +42,12 @@ export function SwapForm() {
     await new Promise((resolve) => setTimeout(resolve, 800));
     setStatus('success');
     alert(`Swapping ${amount} ${fromToken?.symbol} to ${toToken?.symbol}`);
+
+    setTimeout(() => setStatus('idle'), 3000); // reset message
   };
 
   return (
-    <div className="w-full max-w-md bg-white p-6 rounded-xl shadow-md space-y-6">
+    <div className="w-full max-w-md bg-white p-4 sm:p-6 rounded-xl shadow-md space-y-6">
       <h1 className="text-3xl font-bold text-center">Currency Swap</h1>
 
       <div className="space-y-4">
@@ -69,18 +71,24 @@ export function SwapForm() {
           </>
         )}
 
-        <AmountInput label="Amount" value={amount} onChange={setAmount} />
+        <AmountInput
+          label="Amount"
+          value={amount}
+          onChange={setAmount}
+          disabled={status === 'loading'}
+        />
       </div>
 
       <SwapPreview amount={amount} fromToken={fromToken} toToken={toToken} />
 
       {status === 'success' && (
-        <p className="text-green-600 text-sm text-center font-medium">
+        <p className="text-green-600 text-sm text-center font-medium transition-opacity duration-500 ease-in-out opacity-100">
           ✅ Swap successful!
         </p>
       )}
+
       {status === 'error' && (
-        <p className="text-red-500 text-sm text-center font-medium">
+        <p className="text-red-500 text-sm text-center font-medium transition-opacity duration-500 ease-in-out opacity-100">
           ⚠️ Something went wrong.
         </p>
       )}

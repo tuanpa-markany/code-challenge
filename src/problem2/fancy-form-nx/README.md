@@ -1,82 +1,78 @@
-# FancyFormNx
+# 💱 Fancy Form - Currency Swap Interface
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+A modern, minimal and responsive currency swap UI built with **React**, **TailwindCSS**, and **Zustand**, powered by **Nx** monorepo architecture. The project fetches real-time token prices, supports token selection with logos, and calculates swap amounts live.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+---
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## ✨ Features
 
-## Finish your remote caching setup
+- 🔁 Token selection with live filtering and fallback icon support
+- 💸 Real-time swap preview with computed price
+- 🎯 Zustand-based global state management
+- 🌈 Responsive, accessible, TailwindCSS-powered UI
+- 🚀 Monorepo setup with Nx for scalable architecture
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/Nvj7uJ6wiq)
+---
 
+## 🛠 Tech Stack
 
-## Run tasks
+| Tool         | Description |
+|--------------|-------------|
+| **React**    | Core UI library |
+| **TailwindCSS** | For utility-first styling and rapid prototyping |
+| **Zustand**  | Lightweight state management for predictable global state |
+| **Headless UI** | Accessible and unstyled UI primitives (e.g., Listbox) |
+| **Heroicons** | Icon library used in dropdown UI |
+| **Vite**     | Lightning-fast frontend build tool |
+| **Nx**       | Monorepo framework for scalable modular development |
 
-To run the dev server for your app, use:
+### Why Nx?
 
-```sh
-npx nx serve fancy-form-nx
+Nx enables a modular project structure where **shared logic (UI components, utils, store)** can be reused across multiple apps or libraries. It provides:
+- Workspace orchestration
+- Dependency graph visualization
+- Incremental builds & caching
+- Custom library generation (e.g., `@fancy-form-nx/ui`, `@fancy-form-nx/store`)
+
+This approach ensures that each part of the application remains maintainable and testable independently.
+
+---
+
+## 🧪 How to Run
+
+```bash
+pnpm install
+pnpm npx nx serve fancy-form # or pnpm run dev
 ```
 
-To create a production bundle:
+---
 
-```sh
-npx nx build fancy-form-nx
+## 🧩 Project Structure (Simplified)
+
+```
+apps/
+  fancy-form/          # Main app
+libs/
+  containers/swap-form # SwapForm UI container
+  shared/
+    ui/                # Reusable UI components (TokenSelect, SwapButton, etc.)
+    utils/             # fetchTokenPrices, calculation logic
+    store/             # Zustand store
 ```
 
-To see all available targets to run for a project, run:
+---
 
-```sh
-npx nx show project fancy-form-nx
-```
+## 🖼 Token Icons
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+We use `https://github.com/Switcheo/token-icons` as the base URL for logos, with a local fallback SVG for missing tokens to ensure graceful rendering.
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+---
 
-## Add new projects
+## 🚧 Known Improvements or TODOs
+- Enable search token selection with live filtering
+- Enhance accessibility (aria labels, keyboard focus)
+- Add unit and e2e tests
+- Persist swap history for user
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/react:app demo
-```
-
-To generate a new library, use:
-
-```sh
-npx nx g @nx/react:lib mylib
-```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+---
+## App Preview ![img.png](screenshots/img1.png) ![img.png](screenshots/img2.png) ![img.png](screenshots/img3.png) ![img.png](screenshots/img4.png) ![img.png](screenshots/img5.png)

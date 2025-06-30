@@ -70,6 +70,7 @@ We use `https://github.com/Switcheo/token-icons` as the base URL for logos, with
 
 ## 🚧 Known Improvements or TODOs
 - Enable search token selection with live filtering
+- Virtualized Dropdown for Performance (Best for 100+ tokens)
 - Enhance accessibility (aria labels, keyboard focus)
 - Add unit and e2e tests
 - Persist swap history for user
